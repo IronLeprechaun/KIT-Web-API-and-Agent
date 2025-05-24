@@ -1,0 +1,195 @@
+# KIT System - Comprehensive .gitignore
+
+# 🔐 SECURITY - Sensitive Files (NEVER COMMIT THESE)
+# ======================================================
+.secrets/                    # Encrypted secrets directory
+secrets.enc                  # Encrypted secrets file  
+salt.bin                     # Encryption salt file
+.env                         # Environment variables
+.env.local                   # Local environment variables
+.env.production             # Production environment variables
+.env.development            # Development environment variables
+.env.testing                # Testing environment variables
+*.key                       # Any key files
+*.pem                       # Certificate files
+*.crt                       # Certificate files
+secrets.json                # Plain text secrets (if accidentally created)
+api_keys.txt                # Plain text API keys (if accidentally created)
+
+# 🗄️ DATABASE FILES
+# ==================
+*.db                        # SQLite database files
+*.sqlite                    # SQLite database files
+*.sqlite3                   # SQLite database files
+database/                   # Database directory
+kit_agent*.db              # KIT agent databases
+test_*.db                   # Test databases
+
+# 🐍 PYTHON
+# ==========
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# 🌐 VIRTUAL ENVIRONMENTS
+# ========================
+.venv/
+venv/
+ENV/
+env/
+.env_backup/
+
+# ⚛️ NODE.JS & FRONTEND
+# ======================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+lerna-debug.log*
+dist/
+build/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+.DS_Store
+*.tsbuildinfo
+.npm
+.eslintcache
+
+# 📋 LOGS & TEMPORARY FILES
+# ==========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+pids
+*.pid
+*.seed
+*.pid.lock
+lib-cov
+coverage/
+*.lcov
+.nyc_output
+.grunt
+bower_components
+.lock-wscript
+.node_repl_history
+*.tgz
+.yarn-integrity
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 🧪 TESTING
+# ===========
+test_results.json           # Test results
+.pytest_cache/              # Pytest cache
+.coverage                   # Coverage reports
+htmlcov/                    # Coverage HTML reports
+.tox/                       # Tox testing
+.nox/                       # Nox testing
+.coverage.*                 # Coverage files
+coverage.xml                # Coverage XML
+*.cover                     # Coverage files
+*.py,cover                  # Coverage files
+.hypothesis/                # Hypothesis testing
+
+# 🔧 IDE & EDITOR
+# ================
+.vscode/                    # VS Code settings
+.idea/                      # IntelliJ/PyCharm
+*.swp                       # Vim swap files
+*.swo                       # Vim swap files
+*~                          # Backup files
+.project                    # Eclipse
+.pydevproject               # Eclipse PyDev
+
+# 🖥️ OPERATING SYSTEM
+# ====================
+.DS_Store                   # macOS
+.DS_Store?                  # macOS
+._*                         # macOS
+.Spotlight-V100             # macOS
+.Trashes                    # macOS
+ehthumbs.db                 # Windows
+Thumbs.db                   # Windows
+Desktop.ini                 # Windows
+
+# 📦 PACKAGE MANAGERS
+# ====================
+package-lock.json           # npm lock file (can be excluded if desired)
+yarn.lock                   # Yarn lock file
+.pnpm-lock.yaml            # pnpm lock file
+
+# 🔄 BACKUP & TEMPORARY
+# ======================
+*.bak                       # Backup files
+*.backup                    # Backup files
+*.tmp                       # Temporary files
+*.temp                      # Temporary files
+.temp/                      # Temporary directory
+.tmp/                       # Temporary directory
+
+# 📊 DOCUMENTATION
+# =================
+docs/_build/                # Sphinx documentation
+.mkdocs                     # MkDocs
+
+# 🚀 DEPLOYMENT
+# ==============
+.vercel                     # Vercel deployment
+.netlify                    # Netlify deployment
+
+# ⚙️ CONFIGURATION OVERRIDES
+# ===========================
+# Configuration now handled via config.py and .secrets/ directory
+local_settings.py           # Local Django settings (if used)
+
+# 🔍 SEARCH & INDEX
+# ==================
+.elasticdump                # Elasticsearch dumps
+
+# 💾 CACHE
+# =========
+.cache/                     # General cache directory
+*.cache                     # Cache files
+
+# ============================================================================
+# 🛡️ SECURITY REMINDER
+# ============================================================================
+# This .gitignore is designed to prevent sensitive data from being committed.
+# Key protections:
+# - API keys and secrets (encrypted and plain text)
+# - Database files with potentially sensitive data
+# - Environment configuration files
+# - Private certificates and keys
+# 
+# Always verify files before committing with: git status
+# Double-check sensitive data isn't exposed with: git diff --cached
+# ============================================================================ 

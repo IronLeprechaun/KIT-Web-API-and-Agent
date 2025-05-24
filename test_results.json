@@ -1,0 +1,103 @@
+{
+  "timestamp": "2025-05-23T23:48:50.203931",
+  "summary": {
+    "total": 12,
+    "passed": 10,
+    "failed": 2,
+    "warnings": 0
+  },
+  "tests": [
+    {
+      "name": "Database Schema",
+      "status": "PASS",
+      "details": "All 4 tables found",
+      "duration": 0.001,
+      "timestamp": "2025-05-23T23:48:50.204932"
+    },
+    {
+      "name": "Database Connection",
+      "status": "PASS",
+      "details": "Connected, 1 notes, 2 tags",
+      "duration": 0.001,
+      "timestamp": "2025-05-23T23:48:50.205432"
+    },
+    {
+      "name": "Backend Health",
+      "status": "PASS",
+      "details": "Status: healthy",
+      "duration": 2.051,
+      "timestamp": "2025-05-23T23:48:52.256112"
+    },
+    {
+      "name": "API GET /notes/",
+      "status": "PASS",
+      "details": "List notes - 0 items",
+      "duration": 2.048,
+      "timestamp": "2025-05-23T23:48:54.304508"
+    },
+    {
+      "name": "API GET /tags/",
+      "status": "PASS",
+      "details": "List tags - 2 items",
+      "duration": 2.045,
+      "timestamp": "2025-05-23T23:48:56.349576"
+    },
+    {
+      "name": "API GET /settings/",
+      "status": "PASS",
+      "details": "Get settings",
+      "duration": 2.046,
+      "timestamp": "2025-05-23T23:48:58.396260"
+    },
+    {
+      "name": "Note Creation",
+      "status": "PASS",
+      "details": "Created note ID 2",
+      "duration": 2.058,
+      "timestamp": "2025-05-23T23:49:00.454263"
+    },
+    {
+      "name": "Note Retrieval",
+      "status": "PASS",
+      "details": "Retrieved note ID 2",
+      "duration": 2.066,
+      "timestamp": "2025-05-23T23:49:02.520185"
+    },
+    {
+      "name": "Note Deletion",
+      "status": "PASS",
+      "details": "Deleted note ID 2",
+      "duration": 2.056,
+      "timestamp": "2025-05-23T23:49:04.575901"
+    },
+    {
+      "name": "Frontend Health",
+      "status": "FAIL",
+      "details": "Connection refused - frontend not running?",
+      "duration": 4.095,
+      "timestamp": "2025-05-23T23:49:08.670804"
+    },
+    {
+      "name": "API Performance",
+      "status": "FAIL",
+      "details": "Very slow: 2051.72ms",
+      "duration": 0,
+      "timestamp": "2025-05-23T23:49:10.723027"
+    },
+    {
+      "name": "Database Performance",
+      "status": "PASS",
+      "details": "Query time: 0.50ms, 2 results",
+      "duration": 0,
+      "timestamp": "2025-05-23T23:49:10.723527"
+    }
+  ],
+  "performance": {
+    "api_response_time_ms": 2051.72,
+    "db_query_time_ms": 0.5
+  },
+  "issues": [
+    "Frontend Health: Connection refused - frontend not running?",
+    "API Performance: Very slow: 2051.72ms"
+  ]
+}

@@ -1,0 +1,126 @@
+# KIT System Cursor Rules
+
+## Working Directory Protocol
+- **Primary workspace**: `./` - All active development happens here (project root)
+- **OLD_VERSION_KIT_PY/**: Reference only - use for feature/code reference unless explicitly asked to work on Python CLI or older code
+- **Focus on Project Root**: Tests, scripts, and development should target the main project structure
+
+## Autonomous Testing Protocol
+
+### Before Making Changes
+1. **Always run full test suite before code modifications**
+   - Execute: `python scripts/test_runner.py --suite=full --screenshot=before`
+   - Verify all existing functionality works
+   - Document current state
+
+### After Making Changes  
+1. **Run targeted tests for changed components**
+   - Backend changes: `python scripts/test_runner.py --suite=backend`
+   - Frontend changes: `python scripts/test_runner.py --suite=frontend` 
+   - Database changes: `python scripts/test_runner.py --suite=database`
+
+2. **Run full regression test**
+   - Execute: `python scripts/test_runner.py --suite=full --screenshot=after`
+   - Compare before/after screenshots
+   - Verify no regressions introduced
+
+### Server Management
+- **Always stop servers before schema changes**: `python scripts/server_manager.py --stop-all`
+- **Restart servers after config changes**: `python scripts/server_manager.py --restart-all`
+- **Check server health**: `python scripts/server_manager.py --health-check`
+
+### Testing Requirements
+- **Never ask user for testing help without running automated tests first**
+- **Always provide test results and logs when reporting issues**
+- **Take screenshots for visual verification**
+- **Verify both success and error scenarios**
+
+### Development Workflow
+1. Identify issue/requirement
+2. Run baseline tests
+3. Make minimal changes
+4. Run targeted tests  
+5. Run full regression
+6. Only escalate to user if automated testing fails
+
+### Database Management
+- **Reset DB for clean testing**: `python backend/KITCore/database_manager.py`
+- **Backup before major changes**: `python scripts/db_manager.py --backup`
+- **Verify schema after migrations**: `python scripts/db_manager.py --verify-schema`
+
+### Error Handling Protocol
+1. **Backend errors**: Check logs in `backend/logs/`
+2. **Frontend errors**: Check browser console via test scripts
+3. **Database errors**: Verify schema and connections
+4. **Integration errors**: Test API endpoints directly
+
+### Code Quality Standards
+- **Add debug logging for new functions**
+- **Include error handling in all new code**
+- **Write tests for new functionality**
+- **Document breaking changes**
+
+### Self-Testing Capabilities
+- **UI interaction testing**: Playwright automation
+- **API testing**: Direct endpoint verification  
+- **Database testing**: Schema and data verification
+- **Integration testing**: End-to-end workflows
+- **Performance testing**: Response time monitoring
+- **Error scenario testing**: Intentional failure testing
+
+## File Structure Standards
+```
+/tests/
+  /ui/          # Playwright UI tests
+  /api/         # API endpoint tests  
+  /database/    # Database tests
+  /integration/ # End-to-end tests
+  /utils/       # Testing utilities
+/scripts/
+  test_runner.py      # Main test orchestrator
+  server_manager.py   # Server start/stop/health
+  db_manager.py       # Database operations
+  ui_tester.py        # UI automation
+/backend/       # Python backend
+/frontend/      # React frontend
+```
+
+## Testing Scenarios to Always Cover
+1. **Note Management**
+   - Create note (with/without tags)
+   - Edit note content and tags
+   - Delete note
+   - Search notes
+   - View note history
+
+2. **Tag Management** 
+   - Simple tags (urgent, important)
+   - Typed tags (category:work, person:Alice)
+   - Tag filtering and search
+   - Tag editing and deletion
+
+3. **Error Scenarios**
+   - Server disconnection
+   - Invalid inputs
+   - Database errors
+   - Network failures
+
+4. **UI States**
+   - Empty state (no notes)
+   - Loading states
+   - Error states  
+   - Success states
+
+## Autonomous Problem Resolution
+1. **If backend crashes**: Check logs, restart server, verify DB
+2. **If UI breaks**: Check console, verify API connectivity
+3. **If tests fail**: Analyze logs, identify root cause, fix incrementally
+4. **If DB issues**: Reset schema, verify migrations, test connections
+
+## Never Ask User For Help Until:
+- [ ] All automated tests have been run
+- [ ] Logs have been analyzed
+- [ ] Screenshots have been taken
+- [ ] Error scenarios have been tested
+- [ ] Server health has been verified
+- [ ] Database state has been checked 
