@@ -193,3 +193,4 @@ local_settings.py           # Local Django settings (if used)
 # Always verify files before committing with: git status
 # Double-check sensitive data isn't exposed with: git diff --cached
 # ============================================================================ 
+.secrets/secrets.enc
